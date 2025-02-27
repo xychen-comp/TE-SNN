@@ -35,7 +35,7 @@ parser.add_argument('--out_size', default=20, type=int, metavar='N',
 					help='model output size')
 parser.add_argument('--fc', nargs= '+', default=[128, 128], type=int, metavar='N',
 					help='model architecture')
-parser.add_argument('--data_path', default='C:/dataset/raw', type=str, metavar='PATH',
+parser.add_argument('--data_path', default='/path', type=str, metavar='PATH',
 					help='path to load dataset')
 parser.add_argument('--chkp_path', default='', type=str, metavar='PATH',
 					help='path to save the training model (default: none)')

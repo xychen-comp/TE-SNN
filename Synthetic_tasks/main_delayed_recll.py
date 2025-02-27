@@ -4,11 +4,11 @@ import os
 os.environ['CUDA_VISIBLE_DEVICES'] = "0"
 import torch
 import torch.nn as nn
-from data.data_order import data_generator
+from data.data_recall import data_generator
 from utils.lib import dump_json, set_seed, count_para
 from torch.optim.lr_scheduler import StepLR
 from model.spiking_seqmnist_model import TESNN
-from model.Hyperparameters_order import args
+from model.Hyperparameters_recall import args
 from model.ALIF import RNN_custom
 from model.lstm import lstm
 
@@ -28,8 +28,8 @@ if __name__ == "__main__":
 
     # Data preprocessing
     home_dir = current_dir  # relative path
-    snn_ckp_dir = os.path.join(home_dir, 'exp/Temporal_Order/checkpoint/')
-    snn_rec_dir = os.path.join(home_dir, 'exp/Temporal_Order/record/')
+    snn_ckp_dir = os.path.join(home_dir, 'exp/Delayed_recall/checkpoint/')
+    snn_rec_dir = os.path.join(home_dir, 'exp/Delayed_recall/record/')
 
     seq_length = args.seq_len
     max_duration = args.max_duration
@@ -106,7 +106,7 @@ if __name__ == "__main__":
             else:
                 x, y = X_train[i:(i + batch_size)], Y_train[i:(i + batch_size)]
             optimizer.zero_grad()
-            output = net(x,'order')
+            output = net(x,'recall')
             output = output.transpose(1,2)
             loss = criterion(output.reshape(-1, 10), y.view(-1))
             loss.backward()
@@ -136,7 +136,7 @@ if __name__ == "__main__":
         global best_loss
         net.eval()
         with torch.no_grad():
-            output = net(X_test,'order')
+            output = net(X_test,'recall')
             test_loss = criterion(output.transpose(1,2).reshape(-1, 10), Y_test.view(-1))
             pred = output[...,-10:].data.max(1, keepdim=False)[1] # only count the accuracy of the last 10 timesteps
             acc = pred.eq(Y_test[:,-10:].data).cpu().sum() / (output.size(0) * 10.)

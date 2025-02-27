@@ -5,9 +5,9 @@ from torch.autograd import Variable
 
 def data_generator(T, mem_length, b_size, encode=False):
     """
-    Generate data for the temporal order judgment task
+    Generate data for the delayed recall task
     :param T: The delay length
-    :param mem_length: The length of the temporal order to be recalled
+    :param mem_length: The length of the input sequences to be recalled
     :param b_size: The batch size
     :return: Input and target data tensor
     """

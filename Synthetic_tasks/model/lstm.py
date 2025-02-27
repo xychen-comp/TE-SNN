@@ -34,7 +34,7 @@ class lstm(nn.Module):
             return output.permute(0,2,1)
         elif task == 'interval':
             return output[:, -1, :]
-        elif task == 'order':
+        elif task == 'recall':
             return output.permute(0,2,1)
 
     def get_grads(self, x):

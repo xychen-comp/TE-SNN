@@ -101,13 +101,13 @@ class TESNN(nn.Module):
 
         output = torch.stack(out, dim=2)
         if task == 'duration':
-            return output[:,:,-1]  # duration
+            return output[:,:,-1]  # Duration
         elif task == 'syn':
             return output # Synchronization
         elif task == 'interval':
-            return output[:, :, -1]  # interval
-        elif task == 'order':
-            return output # temporal order
+            return output[:, :, -1]  # Interval
+        elif task == 'recall':
+            return output # Delayed recall
 
     def visualize(self, input, task='duration'):
         if self.te == 'TE-R':
@@ -147,13 +147,13 @@ class TESNN(nn.Module):
         output = torch.stack(out, dim=2)
 
         if task == 'duration':
-            return output, hidden_spike1, hidden_spike2  # duration
+            return output, hidden_spike1, hidden_spike2  # Duration
         elif task == 'syn':
             return output, hidden_spike1, hidden_spike2 # Synchronization
         elif task == 'interval':
-            return output.clamp(0,2), hidden_spike1, hidden_spike2  # interval
-        elif task == 'order':
-            return output, hidden_spike1, hidden_spike2 # temporal order
+            return output.clamp(0,2), hidden_spike1, hidden_spike2  # Interval
+        elif task == 'recall':
+            return output, hidden_spike1, hidden_spike2 # Delayed recall
 
     def get_grads(self, input):
         if self.te == 'TE-R':

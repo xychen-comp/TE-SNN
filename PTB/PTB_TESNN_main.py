@@ -19,7 +19,7 @@ parser = argparse.ArgumentParser(description='PyTorch Training')
 # args of datasets
 parser.add_argument('--dataset', default='PTB', type=str,
                     help='dataset: [PTB]')
-parser.add_argument('--data_path', default='C:/dataset/raw',
+parser.add_argument('--data_path', default='/path',
                     help='path to dataset,')
 parser.add_argument('-j', '--workers', default=0, type=int, metavar='N',
                     help='number of data loading workers (default: 4)')

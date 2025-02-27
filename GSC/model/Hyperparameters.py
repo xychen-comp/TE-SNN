@@ -32,7 +32,7 @@ parser.add_argument('--cuda', default='0', type=str, help='gpu index')
 parser.add_argument('--time-window', default=101, type=int, help='')
 parser.add_argument('--recurrent', default=False, action='store_true',
 					help='Feedforward or recurrent')
-parser.add_argument('--data_path', default='C:/dataset/raw', type=str, metavar='PATH',
+parser.add_argument('--data_path', default='/path', type=str, metavar='PATH',
 					help='path to load dataset')
 
 args = parser.parse_args()

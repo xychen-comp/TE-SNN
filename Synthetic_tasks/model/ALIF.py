@@ -152,7 +152,7 @@ class RNN_custom(nn.Module):
             return output # Synchronization
         elif task == 'interval':
             return output[:, :, -1] # add
-        elif task == 'order':
+        elif task == 'recall':
             return output # Copy
 
     def get_grads(self, input):

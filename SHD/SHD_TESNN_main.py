@@ -206,7 +206,7 @@ def sparse_data_generator_from_hdf5_spikes(X, y, batch_size, nb_steps, nb_units,
         counter += 1
 
 def getData():
-    root_path = 'C:/dataset/raw/SHD'
+    root_path = args.data_path + '/SHD'
     train_file = h5py.File(os.path.join(root_path, 'shd_train.h5'), 'r')
     test_file = h5py.File(os.path.join(root_path, 'shd_test.h5'), 'r')
 
@@ -227,7 +227,6 @@ if __name__ == "__main__":
         print('GPU is not available')
 
     home_dir = current_dir  # Relative path
-    data_path = args.data_path
     snn_ckp_dir = os.path.join(home_dir, 'exp/SHD/checkpoint/')
     snn_rec_dir = os.path.join(home_dir, 'exp/SHD/record/')
     print(snn_ckp_dir)

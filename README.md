@@ -1,6 +1,6 @@
-# [Title] - Code Implementation
+# TE-SNN 
 
-This repository contains the implementation of the experiments from the paper **"[Title]"**. The code is structured to reproduce all experiments efficiently using provided scripts.
+This repository contains the implementation of the experiments from the paper **"Temporal structure encoding for accurate and robust temporal processing in spiking neural networks"**. The code is structured to reproduce all experiments efficiently using provided scripts.
 
 ## Dependencies
 To run this code, you need the following dependencies:

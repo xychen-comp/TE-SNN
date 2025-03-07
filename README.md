@@ -11,7 +11,7 @@ To run this code, you need the following dependencies:
 - CUDA `11.6` 
 - Librosa `0.8.0` (for audio processing in the GSC dataset)
 
-📌 *Note*: The Autonomous Driving Task requires additional dependencies, which are listed in `Autonomous_driving/README.md`.
+📌 *Note*: The autonomous driving task requires additional dependencies, which are listed in `Autonomous_driving/README.md`.
 
 ## Project Structure
 
@@ -51,7 +51,7 @@ The following method applies to all tasks except the Autonomous Driving Task.
     📌 *Note*: For scripts in `Synthetic_tasks`, no dataset path is required.
 
 
-2. **Execute the experiment:**
+2. **Execute the experiment (e.g., S-MNIST):**
 
    Once the dataset path is correctly set, you can run all four experiments (TE-SFNN-R, TE-SFNN-N, TE-SRNN-R, TE-SRNN-N) sequentially using:
 
@@ -63,6 +63,6 @@ The following method applies to all tasks except the Autonomous Driving Task.
 
 ### Running the Autonomous Driving Task
 
-The Autonomous Driving Task has unique dependencies and setup requirements. Please refer to `Autonomous_driving/README.md` for detailed instructions on installing the necessary packages and running the experiment.
+The autonomous driving task has unique dependencies and setup requirements. Please refer to `Autonomous_driving/README.md` for detailed instructions on installing the necessary packages and running the experiment.
 
 

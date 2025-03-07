@@ -43,7 +43,7 @@ Project Root
 ## Runing Experiments
 ### Runing Standard Benchmarks 
 
-The following method applies to all tasks except the Autonomous Driving Task.
+The following method applies to all tasks except the autonomous driving task.
 1. **Set the dataset path:** 
 
    Before running, update the corresponding script (e.g., `Spiking_MNIST/run_smnist.py`) by replacing all `/path` with your actual dataset location. 

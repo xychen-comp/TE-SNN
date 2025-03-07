@@ -4,7 +4,7 @@ This directory contains the implementation of the **autonomous driving task** ex
 
 ## Code Base  
 
-Our implementation is **developed based on [F1TENTH Gym](https://f1tenth-gym.readthedocs.io/en/latest/installation.html) and the [f1 racketrack database](https://github.com/TUMFTM/racetrack-database)**. The necessary components are already included for ease of use. We provide their **official README files** within respective folders to offer further instructions on their usage and setup.
+Our implementation is **developed based on [F1TENTH Gym](https://f1tenth-gym.readthedocs.io/en/latest/installation.html) and the [f1 racetrack database](https://github.com/TUMFTM/racetrack-database)**. The necessary components are already included for ease of use. We provide their **official README files** within respective folders to offer further instructions on their usage and setup.
 
 ## Dependencies  
 
@@ -53,8 +53,7 @@ Once all dependencies are installed, follow these steps to run the autonomous dr
    ```
    
    - Experimental logs and trained models will be saved in the `logs/` directory for further analysis.
-2. **Monitor the training process**  
-   - The script will log training progress and save model checkpoints automatically.  
+2. **Monitor the training process**   
    - Initial **TensorBoard** for real-time visualization:
 
    ```sh

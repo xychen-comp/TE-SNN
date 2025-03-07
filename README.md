@@ -8,13 +8,14 @@ To run this code, you need the following dependencies:
 - Python `3.9.13`
 - NumPy `1.23.4`
 - PyTorch `1.13.0`
-- CUDA `12.2` 
+- CUDA `11.6` 
 - Librosa `0.8.0` (for audio processing in the GSC dataset)
 
+📌 *Note*: The Autonomous Driving Task requires additional dependencies, which are listed in `Autonomous_driving/README.md`.
 
-## How to Reproduce Our Results
+## Project Structure
 
-Each category of tasks is stored in a separate folder. Inside each folder, the script prefixed with `run_` can execute all relevant experiments.
+Each category of tasks is stored in a separate folder.
 
 ```graphql
 Project Root
@@ -32,26 +33,36 @@ Project Root
  │    ├── run_duration.py # Script to run Duration Discrimination experiments
  │    ├── run_syn.py      # Script to run Synchronization experiments
  │    ├── run_recall.py   # Script to run Delayed Recall experiments
+ ├── Autonomous_driving/  
+ │    ├── run_autonomous_driving.py   # Script to run autonomous driving experiments
+ │    ├── README.md       # Instructions for environment configuration and running autonomous driving experiments  
  ├── README.md            # This file
  
 ```
 
+## Runing Experiments
+### Runing Standard Benchmarks 
 
-### Example: Running Experiments on the S-MNIST Dataset
+The following method applies to all tasks except the Autonomous Driving Task.
+1. **Set the dataset path:** 
 
-- Before running the experiments, you must specify the dataset path inside the `Spiking_MNIST/run_smnist.py` script by replacing all `/path` with your actual dataset location. 
+   Before running, update the corresponding script (e.g., `Spiking_MNIST/run_smnist.py`) by replacing all `/path` with your actual dataset location. 
   
-  📌 *Note*: For scripts in `Synthetic_tasks`, no dataset path is required.
+    📌 *Note*: For scripts in `Synthetic_tasks`, no dataset path is required.
 
 
-- Once the dataset path is correctly set, you can run all four experiments (TE-SFNN-R, TE-SFNN-N, TE-SRNN-R, TE-SRNN-N) sequentially using:
+2. **Execute the experiment:**
 
-```sh
-cd Spiking_MNIST
-python run_smnist.py
-```
-- This script will sequentially execute all the experiments for the dataset.
+   Once the dataset path is correctly set, you can run all four experiments (TE-SFNN-R, TE-SFNN-N, TE-SRNN-R, TE-SRNN-N) sequentially using:
 
+    ```sh
+    cd Spiking_MNIST
+    python run_smnist.py
+    ```
+    This approach applies to **GSC, PTB, SHD, Spiking_MNIST, and Synthetic_tasks**. 
 
+### Running the Autonomous Driving Task
+
+The Autonomous Driving Task has unique dependencies and setup requirements. Please refer to `Autonomous_driving/README.md` for detailed instructions on installing the necessary packages and running the experiment.
 
 

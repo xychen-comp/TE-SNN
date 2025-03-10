@@ -36,7 +36,7 @@ if __name__ == "__main__":
     batch_size=args.batch_size
     epochs=args.epochs
     lr=args.lr
-    X_train, Y_train = data_generator(50000, seq_length,max_duration)  #[N,1,Seq_len],[N,2,Seq_len]
+    X_train, Y_train = data_generator(50000, seq_length,max_duration)
     X_test, Y_test = data_generator(1000, seq_length,max_duration)
     X_train = X_train.to(device)
     Y_train = Y_train.to(device)
@@ -75,12 +75,6 @@ if __name__ == "__main__":
     print(net)
     para=count_para(net)
     print(net,'para:',para)
-    # pretrain = torch.load(snn_ckp_dir + 'SRNN_v2_in8_T784.0_decay0.5_thr0.3_lens0.2_arch64-256-256_lr0.0002.pt')
-    #
-    # net.load_state_dict(pretrain['model_state_dict'], strict=False)
-
-    # n = count_parameters(net)
-    # print("Number of parameters: %s" % n)
 
     optimizer = torch.optim.Adam(net.parameters(), lr=learning_rate)  # define weight update method
     scheduler = StepLR(optimizer, step_size=20, gamma=0.8)

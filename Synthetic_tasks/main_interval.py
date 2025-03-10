@@ -36,7 +36,7 @@ if __name__ == "__main__":
     batch_size=args.batch_size
     epochs=args.epochs
     lr=args.lr
-    X_train, Y_train = data_generator(50000, seq_length)  #[N,1,Seq_len],[N,2,Seq_len]
+    X_train, Y_train = data_generator(50000, seq_length)
     X_test, Y_test = data_generator(1000, seq_length)
     X_train = X_train.to(device)
     Y_train = Y_train.to(device)
@@ -58,15 +58,15 @@ if __name__ == "__main__":
     if args.te == 'LSTM':
         train_record_path = 'LSTM_seq{0}_co{1}_lens{2}_arch{3}_lr{4}' \
             .format(args.seq_len, args.beta, args.lens, arch_name, learning_rate)
-        net = lstm(INPUT_SIZE=2, LAYERS=len(args.fc), HIDDEN_SIZE=args.fc[0])
+        net = lstm(INPUT_SIZE=1, LAYERS=len(args.fc), HIDDEN_SIZE=args.fc[0])
     elif args.te == 'ALIF':
         train_record_path = 'ALIF_seq{0}_co{1}_lens{2}_arch{3}_lr{4}' \
             .format(args.seq_len, args.beta, args.lens, arch_name, learning_rate)
-        net = RNN_custom(time_window=seq_length, input_size=2, hidden_dims=args.fc)
+        net = RNN_custom(time_window=seq_length, input_size=1, hidden_dims=args.fc)
     else:
         train_record_path = 'TESNN_{0}_seq{1}_co{2}_lens{3}_arch{4}_lr{5}' \
             .format(args.te,args.seq_len, args.beta, args.lens, arch_name, learning_rate)
-        net = TESNN(in_size=2, time_window=seq_length, hidden_size=args.fc, te_type=args.te, beta=args.beta, decay=args.decay)
+        net = TESNN(in_size=1, time_window=seq_length, hidden_size=args.fc, te_type=args.te, beta=args.beta, decay=args.decay)
 
     train_record_path = train_record_path + '_seed_' + str(args.seed)
     train_chk_pnt_path = train_record_path
@@ -75,12 +75,6 @@ if __name__ == "__main__":
     print(net)
     para=count_para(net)
     print(net,'para:',para)
-    # pretrain = torch.load(snn_ckp_dir + 'SRNN_v2_in8_T784.0_decay0.5_thr0.3_lens0.2_arch64-256-256_lr0.0002.pt')
-    #
-    # net.load_state_dict(pretrain['model_state_dict'], strict=False)
-
-    # n = count_parameters(net)
-    # print("Number of parameters: %s" % n)
 
     optimizer = torch.optim.Adam(net.parameters(), lr=learning_rate)  # define weight update method
     scheduler = StepLR(optimizer, step_size=20, gamma=0.8)

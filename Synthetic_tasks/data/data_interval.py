@@ -27,8 +27,7 @@ def data_generator(N, seq_length):
         index = index+start
         X[i, 0, index] = 1
         sum_ones = np.sum(order[order == 1])  # Sum of interval1 counts
-        sum_zeros = np.sum(order[order == 0])  # Sum of interval2 counts
-        Y[i, 0] = sum_ones - sum_zeros  # Compute the difference
+        Y[i, 0] = sum_ones
     return Variable(X), Variable(Y)
 
 

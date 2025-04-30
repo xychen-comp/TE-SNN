@@ -7,7 +7,7 @@ os.system(" python ./main_interval.py --te TE-R --fc 84 84 --lr 1e-3")
 os.system(" python ./main_interval.py --te TE-N")
 
 ### LSTM
-os.system(" python ./main_interval.py --te LSTM --fc 35 35 --lr 3e-4")
+os.system(" python ./main_interval.py --te LSTM --fc 35 35  --grad-clip 0.5")
 
 ### SRNN
 os.system(" python ./main_interval.py --te LIF --fc 84 84")
